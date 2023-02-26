@@ -36,9 +36,11 @@ describe("User class", () => {
     it("sets only name", () => {
       user.set({ name: changedUserData.name });
       expect(user.get("name")).toBe(changedUserData.name);
+      expect(user.get("age")).toBe(mockUser.age);
     });
     it("sets only age", () => {
       user.set({ age: changedUserData.age });
+      expect(user.get("name")).toBe(mockUser.name);
       expect(user.get("age")).toBe(changedUserData.age);
     });
   });
