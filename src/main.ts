@@ -1,3 +1,6 @@
-import './style.css';
+import { User } from "./models/User";
+import "./style.css";
 
-console.log('Hi');
+const user = new User({ name: "Aniket", age: 30 });
+console.log(user.get("name"));
+console.log(user.get("age"));
