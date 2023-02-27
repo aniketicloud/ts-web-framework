@@ -1,0 +1,90 @@
+<mxfile host="65bd71144e">
+    <diagram id="eKO3oLS9gSoM9CPBkXL3" name="00-Goal">
+        <mxGraphModel dx="1440" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;glass=0;shadow=0;" parent="1" vertex="1">
+                    <mxGeometry x="336" y="295" width="496" height="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 34px;&quot;&gt;Build a Web Framework&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="399" y="373" width="370" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="oPNcjnpQfzQmDVw7W7TL" name="02-user">
+        <mxGraphModel dx="576" dy="432" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-45" value="class User" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="350" y="240" width="330" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-46" value="private data: UserProps" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="268" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-47" value="get(propName: string): (string | number)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="310" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-48" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="268" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-49" value="Object to store information about a particular user (name, age)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="279" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-50" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="310" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-51" value="Gets a single piece of info about this user (name, age)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="321" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-52" value="set(update: UserProps): void" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="352" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-53" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="352" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-54" value="Changes information about this user (name, age)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="363" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-55" value="on(eventName: string, callback: () =&amp;gt; {})" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="394" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-56" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="394" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-57" value="Registers an event handler with this object, so other parts of the app know when something changes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="405" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-58" value="trigger(eventName: string): void" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="436" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-59" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="436" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-60" value="Triggers an event to tell other parts of the app that something has changed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="447" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-61" value="fetch(): Promise" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="478" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-62" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="478" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-63" value="Fetches some data from the server about a particular user" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="489" width="220" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-64" value="save(): Promise" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;align=center;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="350" y="520" width="330" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-65" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;fontSize=17;align=center;rotation=-180;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="520" width="20" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="q2u0QlZRffsQj2mwpImV-66" value="Saves some data about this user to the server" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="531" width="220" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
