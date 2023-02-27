@@ -34,6 +34,11 @@ export class User {
     this.data = { ...this.data, ...update };
   }
 
+  /**
+   * stores array of callbacks under same event listeners
+   * @param eventName Event listener
+   * @param callback callback function
+   */
   on(eventName: string, callback: Callback) {
     const handlers = this.events[eventName] || [];
     handlers.push(callback);
