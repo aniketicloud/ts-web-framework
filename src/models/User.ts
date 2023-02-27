@@ -2,7 +2,14 @@ export interface UserInfo {
   name?: string;
   age?: number;
 }
+export type Callback = () => void;
+
 export class User {
+  /**
+   * Events with their array of callback functions
+   */
+  public events: { [key: string]: Callback[] } = {};
+
   /**
    *
    * @param data Object to store information about a particular user(name, age, etc.)
@@ -25,5 +32,11 @@ export class User {
   set(update: UserInfo): void {
     // Object.assign(this.data, update);
     this.data = { ...this.data, ...update };
+  }
+
+  on(eventName: string, callback: Callback) {
+    const handlers = this.events[eventName] || [];
+    handlers.push(callback);
+    this.events[eventName] = handlers;
   }
 }
