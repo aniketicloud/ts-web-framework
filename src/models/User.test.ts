@@ -8,7 +8,7 @@ let user: User;
 beforeEach(() => {
   mockUser = {
     name: "user_name",
-    age: 29,
+    age: 30,
   };
   user = new User(mockUser);
 });
@@ -16,7 +16,7 @@ beforeEach(() => {
 describe("get()", () => {
   it("returns user name & age", () => {
     expect(user.get("name")).toBe(mockUser.name);
-    expect(user.get("age")).toBe(29);
+    expect(user.get("age")).toBe(mockUser.age);
   });
 });
 
