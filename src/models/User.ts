@@ -35,7 +35,8 @@ export class User {
   }
 
   /**
-   * stores array of callbacks under same event listeners
+   * Registers an event handler with this object, 
+   * so other parts of the app know when something changes
    * @param eventName Event listener
    * @param callback callback function
    */
@@ -45,6 +46,11 @@ export class User {
     this.events[eventName] = handlers;
   }
 
+  /**
+   * Triggers an event to tell other parts of the app 
+   * that something has changed
+   * @param eventName Name of the Event listener
+   */
   trigger(eventName: string): void {
     const handlers = this.events[eventName];
     if (!handlers || handlers.length === 0) return;
