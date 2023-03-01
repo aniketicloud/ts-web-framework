@@ -20,6 +20,6 @@
   },
 
   "gitHooks": {
-    "pre-push": "npm t"
+    "pre-push": "npm run test"
   }
 }
