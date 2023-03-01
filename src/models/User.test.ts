@@ -82,7 +82,7 @@ describe("trigger()", () => {
     user.on(eventOne, callbackViFn);
     user.on(eventOne, callbackViFn);
     user.trigger(eventOne);
-    expect(callbackViFn).toHaveBeenCalledTimes(2);
+    expect(callbackViFn).toHaveBeenCalledTimes(1);
   });
   it("triggers two separate callback functions when two separate callbacks are registered", () => {
     const secondCallbackViFn = vi.fn(() => {});
