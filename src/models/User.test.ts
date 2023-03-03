@@ -73,6 +73,11 @@ describe("trigger()", () => {
   beforeEach(() => {
     callbackViFn = vi.fn(() => {});
   });
+  it("does not trigger a callback if eventName is not present", () => {
+    user.on(eventOne, callbackViFn);
+    user.trigger("fakeEvent");
+    console.log(user);
+  });
   it("triggers a callback once when one callback is registered", () => {
     user.on(eventOne, callbackViFn);
     user.trigger(eventOne);
