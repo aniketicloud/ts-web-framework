@@ -62,8 +62,8 @@ export class User {
   }
 
   fetch(): void {
-    // const id = this.get("id");
-    const id = 2;
+    const id = this.get("id");
+    // const id = 2;
     fetch(`${baseUrl}/${id}`)
       .then((response) => {
         console.log({ response });
