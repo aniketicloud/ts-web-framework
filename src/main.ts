@@ -3,7 +3,7 @@ import "./style.css";
 
 const testUser: UserInfo = { name: "Aniket", age: 30 };
 
-const user = new User({ id: 4 });
+const user = new User({ id: 1 });
 user.fetch();
 
 setTimeout(() => {

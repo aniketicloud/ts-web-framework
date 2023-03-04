@@ -67,6 +67,9 @@ export class User {
     fetch(`${baseUrl}/${id}`)
       .then((response) => {
         console.log({ response });
+        if (!response.ok) {
+          throw new Error("Network response was not OK");
+        }
         return response.json();
       })
       .then((data) => {
@@ -75,7 +78,10 @@ export class User {
         return data;
       })
       .catch((error) => {
-        console.log("The error is:", error);
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
       });
   }
 }
