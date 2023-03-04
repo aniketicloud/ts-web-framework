@@ -5,10 +5,4 @@ const baseUrl: string = "http://localhost:3000/users";
 const testUser: UserInfo = { name: "Aniket", age: 30 };
 const user = new User(testUser);
 
-fetch(baseUrl, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(testUser),
-});
+user.fetch();

@@ -1,4 +1,6 @@
+export const baseUrl: string = "http://localhost:3000/users";
 export interface UserInfo {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -35,7 +37,7 @@ export class User {
   }
 
   /**
-   * Registers an event handler with this object, 
+   * Registers an event handler with this object,
    * so other parts of the app know when something changes
    * @param eventName Event listener
    * @param callback callback function
@@ -47,7 +49,7 @@ export class User {
   }
 
   /**
-   * Triggers an event to tell other parts of the app 
+   * Triggers an event to tell other parts of the app
    * that something has changed
    * @param eventName Name of the Event listener
    */
@@ -57,5 +59,23 @@ export class User {
     handlers.forEach((callback) => {
       callback();
     });
+  }
+
+  fetch(): void {
+    // const id = this.get("id");
+    const id = 2;
+    fetch(`${baseUrl}/${id}`)
+      .then((response) => {
+        console.log({ response });
+        return response.json();
+      })
+      .then((data) => {
+        console.log({ data });
+        this.set(data);
+        return data;
+      })
+      .catch((error) => {
+        console.log("The error is:", error);
+      });
   }
 }
