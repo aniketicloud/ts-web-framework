@@ -63,7 +63,6 @@ export class User {
 
   fetch(): void {
     const id = this.get("id");
-    // const id = 2;
     fetch(`${baseUrl}/${id}`)
       .then((response) => {
         console.log({ response });
@@ -75,7 +74,6 @@ export class User {
       .then((data) => {
         console.log({ data });
         this.set(data);
-        return data;
       })
       .catch((error) => {
         console.error(
