@@ -8,9 +8,9 @@ export interface UserInfo {
 }
 
 export class User {
-  public events: Eventing =  new Eventing()
+  public events: Eventing = new Eventing();
   /**
-   *
+   * Gives us the ability to store properties tied to this user (name, age, etc.)
    * @param data Object to store information about a particular user(name, age, etc.)
    */
   constructor(private data: UserInfo) {}

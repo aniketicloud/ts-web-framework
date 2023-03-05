@@ -7,7 +7,9 @@ export class Eventing {
   public events: { [key: string]: Callback[] } = {};
 
   /**
-   * class to register and trigger an event
+   * Gives us the ability to tell other parts of our
+   * application whenever data tied to a particular
+   * user is changed
    */
   constructor() {}
 
