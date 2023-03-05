@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 coverage
+drawings/.$UserClass.drawio.bkp

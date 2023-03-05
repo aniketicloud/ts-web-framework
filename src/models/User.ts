@@ -1,3 +1,5 @@
+import { Eventing } from "./Eventing";
+
 export const baseUrl: string = "http://localhost:3000/users";
 export interface UserInfo {
   id?: number;
@@ -6,6 +8,7 @@ export interface UserInfo {
 }
 
 export class User {
+  public events: Eventing =  new Eventing()
   /**
    *
    * @param data Object to store information about a particular user(name, age, etc.)

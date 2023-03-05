@@ -7,6 +7,11 @@ export class Eventing {
   public events: { [key: string]: Callback[] } = {};
 
   /**
+   * class to register and trigger an event
+   */
+  constructor() {}
+
+  /**
    * Registers an event handler with this object,
    * so other parts of the app know when something changes
    * @param eventName Event listener
