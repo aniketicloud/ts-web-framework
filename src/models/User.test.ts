@@ -76,7 +76,6 @@ describe("trigger()", () => {
   it("does not trigger a callback if eventName is not present", () => {
     user.on(eventOne, callbackViFn);
     user.trigger("fakeEvent");
-    console.log(user);
   });
   it("triggers a callback once when one callback is registered", () => {
     user.on(eventOne, callbackViFn);
@@ -97,4 +96,9 @@ describe("trigger()", () => {
     expect(callbackViFn).toHaveBeenCalledOnce();
     expect(secondCallbackViFn).toHaveBeenCalledOnce();
   });
+});
+
+describe("save()", () => {
+  it("creates a new user if id is not present on the user instance", () => {});
+  it("updates the user if id is present on the user instance", () => {});
 });

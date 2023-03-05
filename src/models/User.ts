@@ -82,4 +82,34 @@ export class User {
         );
       });
   }
+
+  /**
+   * All of our models that need to be synced with a server,
+   * need an `id` property
+   * If the user have an id, makes a PUT request.
+   * If the user does not have an id, makes a POST request.
+   */
+  save(): void {
+    const id = this.get("id");
+
+    if (id) {
+      // put
+      fetch(`${baseUrl}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.data),
+      });
+    } else {
+      // post
+      fetch(baseUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.data),
+      });
+    }
+  }
 }
