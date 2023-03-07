@@ -4,15 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start:frotnend": "vite",
+    "start:backend": "json-server -w data/db.json",
+    "start": "concurrently npm:start:*",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "start:frotnend": "vite",
-    "start:backend": "json-server -w data/db.json",
-    "start": "concurrently npm:start:*"
+    "test:ui": "vitest --ui"
   },
   "devDependencies": {
     "@vitest/coverage-istanbul": "^0.29.1",

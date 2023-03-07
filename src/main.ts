@@ -1,5 +1,8 @@
+import { Sync } from "./models/Sync";
 import { User, UserInfo } from "./models/User";
 import "./style.css";
+
+export const rootUrl: string = "http://localhost:3000/users";
 
 const testUser: UserInfo = { name: "User One", age: 25 };
 
@@ -12,8 +15,12 @@ const testUser: UserInfo = { name: "User One", age: 25 };
 // const user = new User({ name: "New User", age: 23 });
 // user.save();
 
-const user = new User(testUser);
+// const user = new User(testUser);
 
-user.events.on("change", () => console.log("Change event triggered"));
-user.events.on("change", () => console.log("Another Change event triggered"));
-user.events.trigger("change");
+// user.events.on("change", () => console.log("Change event triggered"));
+// user.events.on("change", () => console.log("Another Change event triggered"));
+// user.events.trigger("change");
+
+const sync = new Sync(rootUrl);
+const x = await sync.fetch(3);
+console.log(x);

@@ -1,26 +1,33 @@
-export const baseUrl: string = "http://localhost:3000/users";
+import { UserInfo } from "./User";
 
 export class Sync {
-  fetch(): void {
-    const id = this.get("id");
-    fetch(`${baseUrl}/${id}`)
-      .then((response) => {
-        console.log({ response });
-        if (!response.ok) {
-          throw new Error("Network response was not OK");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log({ data });
-        this.set(data);
-      })
-      .catch((error) => {
-        console.error(
-          "There has been a problem with your fetch operation:",
-          error
-        );
-      });
+  constructor(private rootUrl: string) {}
+  // async fetch(id: number) {
+  //   try {
+  //     const response = await fetch(`${this.rootUrl}/${id}`);
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not OK");
+  //     }
+  //     const data = await response.json();
+  //   } catch (error) {
+  //     console.error(
+  //       "There has been a problem with your fetch operation:",
+  //       error
+  //     );
+  //   }
+  // }
+
+  fetch(id: number): Promise<Response> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await fetch(`${this.rootUrl}/${id}`);
+        if (!response.ok) throw new Error("Network response was not OK");
+        const data = await response.json();
+        resolve(data);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   /**
@@ -29,26 +36,26 @@ export class Sync {
    * If the user have an id, makes a PUT request.
    * If the user does not have an id, makes a POST request.
    */
-  save(): void {
-    const id = this.get("id");
+  save(data: UserInfo): void {
+    const { id } = data;
 
     if (id) {
       // put
-      fetch(`${baseUrl}/${id}`, {
+      fetch(`${this.rootUrl}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(this.data),
+        body: JSON.stringify(data),
       });
     } else {
       // post
-      fetch(baseUrl, {
+      fetch(this.rootUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(this.data),
+        body: JSON.stringify(data),
       });
     }
   }
