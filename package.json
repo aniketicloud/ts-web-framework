@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:frotnend": "vite",
-    "start:backend": "json-server -w data/db.json",
     "start": "concurrently npm:start:*",
+    "start:frontend": "vite",
+    "start:backend": "json-server -w data/db.json",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",

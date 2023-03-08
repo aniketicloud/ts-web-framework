@@ -1,6 +1,6 @@
-import { Sync } from "./models/Sync";
 import { User, UserInfo } from "./models/User";
 import "./style.css";
+import { fetcher } from "./utils/fetcher";
 
 export const rootUrl: string = "http://localhost:3000/users";
 
@@ -21,6 +21,37 @@ const testUser: UserInfo = { name: "User One", age: 25 };
 // user.events.on("change", () => console.log("Another Change event triggered"));
 // user.events.trigger("change");
 
-const sync = new Sync(rootUrl);
-const x = await sync.fetch(3);
-console.log(x);
+// const sync = new Sync(rootUrl);
+
+// GET
+// const allUsers = await fetcher<UserInfo[]>(rootUrl);
+// console.log("allUsers:", allUsers);
+
+// POST
+try {
+  const user = await fetcher<UserInfo>(rootUrl, "POST", {
+    id: 6,
+    age: 0,
+    name: "only name",
+  });
+  console.log("user:", user);
+} catch (error) {
+  console.log("Error coming from instance:", error);
+}
+
+// try {
+//   const rawFetch = await fetch(rootUrl, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       id: 6,
+//       age: 0,
+//       name: "only name",
+//     }),
+//   }).then((resp) => resp.json());
+//   console.log(rawFetch);
+// } catch (error) {
+//   console.log("error from catch:", error);
+// }

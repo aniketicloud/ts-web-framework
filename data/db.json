@@ -19,6 +19,21 @@
       "name": "New User",
       "age": 23,
       "id": 5
+    },
+    {
+      "age": 20,
+      "name": "new name",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "age": 0,
+      "name": "only name"
+    },
+    {
+      "age": 0,
+      "name": "only name",
+      "id": 8
     }
   ]
 }
