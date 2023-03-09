@@ -1,4 +1,5 @@
 import { Eventing } from "./Eventing";
+import { Sync } from "./Sync";
 
 export interface UserInfo {
   id?: number;
@@ -6,8 +7,10 @@ export interface UserInfo {
   age?: number;
 }
 
+export const rootUrl: string = "http://localhost:3000/users";
 export class User {
   public events: Eventing = new Eventing();
+  public sync: Sync<UserInfo> = new Sync(rootUrl);
   /**
    * Gives us the ability to store properties tied to this user (name, age, etc.)
    * @param data Object to store information about a particular user(name, age, etc.)
@@ -31,6 +34,4 @@ export class User {
     // Object.assign(this.data, update);
     this.data = { ...this.data, ...update };
   }
-
- 
 }

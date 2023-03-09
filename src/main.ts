@@ -2,8 +2,6 @@ import { User, UserInfo } from "./models/User";
 import "./style.css";
 import { fetcher } from "./utils/fetcher";
 
-export const rootUrl: string = "http://localhost:3000/users";
-
 const testUser: UserInfo = { name: "User One", age: 25 };
 
 // id is present in the backend and we know it before hand.
