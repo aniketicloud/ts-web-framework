@@ -15,7 +15,6 @@ export const fetcher = <T>(
       const response = await fetch(url, options);
       resolve(response.json());
     } catch (error) {
-      console.log("promise error", error);
       reject(error);
     }
   });

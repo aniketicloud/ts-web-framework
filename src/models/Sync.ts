@@ -1,6 +1,7 @@
-import { UserInfo } from "./User";
-
-export class Sync {
+interface HasId {
+  id: number;
+}
+export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}
   // async fetch(id: number) {
   //   try {
@@ -36,7 +37,7 @@ export class Sync {
    * If the user have an id, makes a PUT request.
    * If the user does not have an id, makes a POST request.
    */
-  save(data: UserInfo): void {
+  save(data: T): void {
     const { id } = data;
 
     if (id) {
