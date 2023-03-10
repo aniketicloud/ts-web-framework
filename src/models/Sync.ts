@@ -1,5 +1,5 @@
 interface HasId {
-  id: number;
+  id?: number;
 }
 export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}

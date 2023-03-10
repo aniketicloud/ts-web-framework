@@ -10,7 +10,7 @@ export interface UserInfo {
 export const rootUrl: string = "http://localhost:3000/users";
 export class User {
   public events: Eventing = new Eventing();
-  public sync: Sync<UserInfo> = new Sync(rootUrl);
+  public sync: Sync<UserInfo> = new Sync<UserInfo>(rootUrl);
   /**
    * Gives us the ability to store properties tied to this user (name, age, etc.)
    * @param data Object to store information about a particular user(name, age, etc.)
