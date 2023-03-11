@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "concurrently npm:start:*",
-    "start:frontend": "vite",
+    "start:frontend": "vite --open",
     "start:backend": "json-server -w data/db.json",
     "dev": "vite",
     "build": "tsc && vite build",

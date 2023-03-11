@@ -7,11 +7,11 @@ export class Attributes<T> {
 
   /**
    * Returns single piece of info about this entity (name, age, etc.)
-   * @param propName The property name of entity like name, age
+   * @param key The property name of entity like name, age
    * @returns The value of the proprty name
    */
-  get(propName: string): number | string {
-    return this.data[propName];
+  get<K extends keyof T>(key: K): T[K] {
+    return this.data[key];
   }
 
   /**

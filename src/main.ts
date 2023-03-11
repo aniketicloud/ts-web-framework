@@ -1,4 +1,5 @@
-import { User, UserInfo } from "./models/User";
+import { Attributes } from "./models/Attributes";
+import { User, UserInfo, UserProps } from "./models/User";
 import "./style.css";
 import { fetcher } from "./utils/fetcher";
 
@@ -26,16 +27,16 @@ const testUser: UserInfo = { name: "User One", age: 25 };
 // console.log("allUsers:", allUsers);
 
 // POST
-try {
-  const user = await fetcher<UserInfo>(rootUrl, "POST", {
-    id: 6,
-    age: 0,
-    name: "only name",
-  });
-  console.log("user:", user);
-} catch (error) {
-  console.log("Error coming from instance:", error);
-}
+// try {
+//   const user = await fetcher<UserInfo>(rootUrl, "POST", {
+//     id: 6,
+//     age: 0,
+//     name: "only name",
+//   });
+//   console.log("user:", user);
+// } catch (error) {
+//   console.log("Error coming from instance:", error);
+// }
 
 // try {
 //   const rawFetch = await fetch(rootUrl, {
@@ -53,3 +54,6 @@ try {
 // } catch (error) {
 //   console.log("error from catch:", error);
 // }
+
+const attrs = new Attributes<UserProps>({ age: 2, name: "name" });
+const name = attrs.get("age");
