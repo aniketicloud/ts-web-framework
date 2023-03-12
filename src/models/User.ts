@@ -16,4 +16,22 @@ export class User {
   constructor(data: UserProps) {
     this.attributes = new Attributes<UserProps>(data);
   }
+
+  /**
+   * Returns a reference to the event's on() method
+   */
+  get on() {
+    return this.events.on;
+  }
+
+  /**
+   * Returns a reference to the event's trigger() method
+   */
+  get trigger() {
+    return this.events.trigger;
+  }
+
+  get get() {
+    return this.attributes.get;
+  }
 }
