@@ -10,16 +10,16 @@ export class Attributes<T> {
    * @param key The property name of entity like name, age
    * @returns The value of the proprty name
    */
-  get<K extends keyof T>(key: K): T[K] {
+  get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];
-  }
+  };
 
   /**
    * Changes information about this entity ( name, age, etc.)
    * @param update Object of entity Info
    */
-  set(update: T): void {
+  set = (update: T): void => {
     // Object.assign(this.data, update);
     this.data = { ...this.data, ...update };
-  }
+  };
 }
