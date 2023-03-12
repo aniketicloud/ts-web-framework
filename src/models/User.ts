@@ -31,6 +31,9 @@ export class User {
     return this.events.trigger;
   }
 
+  /**
+   * Returns a reference to the attribute's get() method
+   */
   get get() {
     return this.attributes.get;
   }
