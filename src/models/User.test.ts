@@ -1,9 +1,9 @@
 /// <reference types="vitest" />
 
-import { beforeEach, describe, expect, it } from "vitest";
-import { User, UserInfo } from "./User";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { User, UserProps } from "./User";
 
-let mockUser: UserInfo;
+let mockUser: UserProps;
 let user: User;
 
 beforeEach(() => {
@@ -22,7 +22,7 @@ describe("get()", () => {
 });
 
 describe("set()", () => {
-  let changedUserData: UserInfo;
+  let changedUserData: UserProps;
   beforeEach(() => {
     changedUserData = {
       name: "new name",
@@ -43,6 +43,13 @@ describe("set()", () => {
     user.set({ age: changedUserData.age });
     expect(user.get("name")).toBe(mockUser.name);
     expect(user.get("age")).toBe(changedUserData.age);
+  });
+  it("triggers an `change` event whenever user info is changed with set()", () => {
+    const callback = vi.fn(() => {});
+    user.on("change", callback);
+    user.set({ name: "new name" });
+    expect(callback).toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledOnce();
   });
 });
 
