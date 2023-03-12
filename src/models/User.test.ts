@@ -44,12 +44,16 @@ describe("set()", () => {
     expect(user.get("name")).toBe(mockUser.name);
     expect(user.get("age")).toBe(changedUserData.age);
   });
-  it("triggers an `change` event whenever user info is changed with set()", () => {
+  it("triggers an `change` event whenever user info is changed", () => {
     const callback = vi.fn(() => {});
     user.on("change", callback);
     user.set({ name: "new name" });
     expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledOnce();
+  });
+  it("throws an error if empty object is passed", () => {
+    expect(() => user.set({})).toThrow();
+    expect(() => user.set({})).toThrow("cannot set empty object on the user");
   });
 });
 

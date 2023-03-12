@@ -1,3 +1,4 @@
+import { isEmptyObject } from "../utils/common_methods";
 import { Attributes } from "./Attributes";
 import { Eventing } from "./Eventing";
 import { Sync } from "./Sync";
@@ -39,6 +40,7 @@ export class User {
   }
 
   set(update: UserProps): void {
+    if (isEmptyObject(update)) throw new Error("cannot set empty object on the user");
     this.attributes.set(update);
     this.events.trigger("change");
   }
