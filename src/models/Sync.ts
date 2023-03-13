@@ -1,3 +1,4 @@
+import { fetcher } from "../utils/fetcher";
 import { UserProps } from "./User";
 
 interface HasId {
@@ -5,33 +6,23 @@ interface HasId {
 }
 export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}
-  // async fetch(id: number) {
-  //   try {
-  //     const response = await fetch(`${this.rootUrl}/${id}`);
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not OK");
+
+  // fetch(id: number): Promise<UserProps> {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+  //       const response = await fetch(`${this.rootUrl}/${id}`);
+  //       if (!response.ok) throw new Error("Network response was not OK");
+  //       const data: UserProps = await response.json();
+  //       resolve(data);
+  //     } catch (error) {
+  //       reject(error);
   //     }
-  //     const data = await response.json();
-  //   } catch (error) {
-  //     console.error(
-  //       "There has been a problem with your fetch operation:",
-  //       error
-  //     );
-  //   }
+  //   });
   // }
 
-  fetch(id: number): Promise<UserProps> {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = await fetch(`${this.rootUrl}/${id}`);
-        if (!response.ok) throw new Error("Network response was not OK");
-        const data: UserProps = await response.json();
-        resolve(data);
-      } catch (error) {
-        reject(error);
-      }
-    });
-  }
+  fetch = (id: number): Promise<UserProps> => {
+    return fetcher(`${this.rootUrl}/${id}`);
+  };
 
   /**
    * All of our models that need to be synced with a server,

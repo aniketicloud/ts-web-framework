@@ -50,6 +50,8 @@ export class User {
   }
 
   set(update: UserProps): void {
+    console.log("update:", update);
+
     if (isEmptyObject(update)) throw new Error(emptyObjectSetErrorMsg);
     this.attributes.set(update);
     this.events.trigger("change");
@@ -63,16 +65,33 @@ export class User {
    * we get the information we get,
    * and set it on Attributes instance.
    */
-  fetch(): void {
+  // fetch(): void {
+  //   const id = this.attributes.get("id");
+  //   // if we have an id, this user will have
+  //   // data on the server
+  //   if (typeof id !== "number") throw new Error(fetchErrorMsg);
+
+  //   this.sync
+  //     .fetch(id)
+  //     .then((response): void => {
+  //       // ? Take notice if which set() method was called.
+  //       // ? I want to trigger `change` event, so user.set() is called.
+  //       this.set(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  fetch = async () => {
     const id = this.attributes.get("id");
-    // if we have an id, this user will have
-    // data on the server
     if (typeof id !== "number") throw new Error(fetchErrorMsg);
 
-    this.sync.fetch(id).then((response): void => {
-      // ? Take notice if which set() method was called.
-      // ? I want to trigger `change` event, so user.set() is called.
-      this.set(response);
-    });
-  }
+    try {
+      const data = await this.sync.fetch(id);
+      console.log("data:", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
