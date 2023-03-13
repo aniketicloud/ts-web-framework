@@ -13,7 +13,8 @@ export const fetcher = <T>(
     };
     try {
       const response = await fetch(url, options);
-      resolve(response.json());
+      const data: T = await response.json();
+      resolve(data);
     } catch (error) {
       reject(error);
     }

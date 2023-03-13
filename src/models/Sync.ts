@@ -1,3 +1,5 @@
+import { UserProps } from "./User";
+
 interface HasId {
   id?: number;
 }
@@ -18,12 +20,12 @@ export class Sync<T extends HasId> {
   //   }
   // }
 
-  fetch(id: number): Promise<Response> {
+  fetch(id: number): Promise<UserProps> {
     return new Promise(async (resolve, reject) => {
       try {
         const response = await fetch(`${this.rootUrl}/${id}`);
         if (!response.ok) throw new Error("Network response was not OK");
-        const data = await response.json();
+        const data: UserProps = await response.json();
         resolve(data);
       } catch (error) {
         reject(error);

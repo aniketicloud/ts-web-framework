@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { User, UserProps } from "./User";
+import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
 
 let mockUser: UserProps;
 let user: User;
@@ -53,7 +53,14 @@ describe("set()", () => {
   });
   it("throws an error if empty object is passed", () => {
     expect(() => user.set({})).toThrow();
-    expect(() => user.set({})).toThrow("cannot set empty object on the user");
+    expect(() => user.set({})).toThrow(emptyObjectSetErrorMsg);
+  });
+});
+
+describe("fetch()", () => {
+  it("throws and error if the user does not have an id", () => {
+    expect(() => user.fetch()).toThrow();
+    expect(() => user.fetch()).toThrowError(fetchErrorMsg);
   });
 });
 
