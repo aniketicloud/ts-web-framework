@@ -20,6 +20,7 @@ export const emptyObjectSetErrorMsg = "Cannot set empty object on the user";
  * Error message when fetch method is called when id is not present on the user
  */
 export const fetchErrorMsg = "Cannot fetch without id";
+
 export class User {
   public events: Eventing = new Eventing();
   public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
@@ -49,13 +50,13 @@ export class User {
     return this.attributes.get;
   }
 
-  set(update: UserProps): void {
+  set = (update: UserProps): void => {
     console.log("update:", update);
 
     if (isEmptyObject(update)) throw new Error(emptyObjectSetErrorMsg);
     this.attributes.set(update);
     this.events.trigger("change");
-  }
+  };
 
   /**
    * fetch will first get current id of the Attributes,
@@ -65,24 +66,6 @@ export class User {
    * we get the information we get,
    * and set it on Attributes instance.
    */
-  // fetch(): void {
-  //   const id = this.attributes.get("id");
-  //   // if we have an id, this user will have
-  //   // data on the server
-  //   if (typeof id !== "number") throw new Error(fetchErrorMsg);
-
-  //   this.sync
-  //     .fetch(id)
-  //     .then((response): void => {
-  //       // ? Take notice if which set() method was called.
-  //       // ? I want to trigger `change` event, so user.set() is called.
-  //       this.set(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-
   fetch = async () => {
     const id = this.attributes.get("id");
     if (typeof id !== "number") throw new Error(fetchErrorMsg);

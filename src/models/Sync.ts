@@ -7,19 +7,6 @@ interface HasId {
 export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}
 
-  // fetch(id: number): Promise<UserProps> {
-  //   return new Promise(async (resolve, reject) => {
-  //     try {
-  //       const response = await fetch(`${this.rootUrl}/${id}`);
-  //       if (!response.ok) throw new Error("Network response was not OK");
-  //       const data: UserProps = await response.json();
-  //       resolve(data);
-  //     } catch (error) {
-  //       reject(error);
-  //     }
-  //   });
-  // }
-
   fetch = (id: number): Promise<UserProps> => {
     return fetcher(`${this.rootUrl}/${id}`);
   };
@@ -30,7 +17,7 @@ export class Sync<T extends HasId> {
    * If the user have an id, makes a PUT request.
    * If the user does not have an id, makes a POST request.
    */
-  save(data: T): void {
+  save = (data: T): void => {
     const { id } = data;
 
     if (id) {
@@ -52,5 +39,5 @@ export class Sync<T extends HasId> {
         body: JSON.stringify(data),
       });
     }
-  }
+  };
 }
