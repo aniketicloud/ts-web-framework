@@ -1,8 +1,7 @@
-import { User } from "./models/User";
+import { rootUrl, User } from "./models/User";
+import { fetcher } from "./utils/fetcher";
 
 const user = new User({ id: 4 });
 
-user.on("change", () => {
-  console.log("user was changed", user);
-});
-user.fetch();
+const data = await fetcher(rootUrl);
+console.log(data);

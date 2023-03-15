@@ -1,9 +1,11 @@
+import { fetch } from "cross-fetch";
+
 /**
  * Preconfigured fetch for making request
  * @param url URL string of the address
  * @param method Http method. "GET"(default) | "PUT" | "POST" | "DELETE"
  * @param body json data to send
- * @returns native javascript object
+ * @returns a promise which gives native javascript object when fullfilled
  */
 export const fetcher = async <T>(
   url: string,

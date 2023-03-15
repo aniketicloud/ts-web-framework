@@ -1,6 +1,7 @@
 import { rest } from "msw";
+import { UserProps } from "../models/User";
 
-const users = [
+const users: UserProps[] = [
   {
     id: 1,
     name: "User 1",
@@ -13,7 +14,6 @@ const users = [
   },
 ];
 export const handlers = [
-  // Handles http://localhost:3000/users request
   rest.get("http://localhost:3000/users", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(users));
   }),
