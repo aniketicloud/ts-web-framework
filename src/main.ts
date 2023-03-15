@@ -3,5 +3,5 @@ import { fetcher } from "./utils/fetcher";
 
 const user = new User({ id: 4 });
 
-const data = await fetcher(rootUrl);
+const data = await fetcher("http://some-wrong-url.com");
 console.log(data);

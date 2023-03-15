@@ -14,11 +14,14 @@ afterAll(() => server.close());
 afterEach(() => server.resetHandlers());
 
 describe("fetcher() with mocking data for localhost url", () => {
-  it("fetches users array with length 2", async () => {
+  it("fetches users array at '/users'", async () => {
     const users = await fetcher<UserProps[]>(rootUrl);
     expect(users).toHaveLength(2);
   });
   it("fetches users array with length 2", () => {
     return expect(fetcher<UserProps[]>(rootUrl)).resolves.toHaveLength(2);
+  });
+  it("throws an error for incorrect url", () => {
+    expect(fetcher("http://some-wrong-url.com")).rejects.toThrowError();
   });
 });
