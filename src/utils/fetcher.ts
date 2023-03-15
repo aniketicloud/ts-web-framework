@@ -1,6 +1,13 @@
+/**
+ * Preconfigured fetch for making request
+ * @param url URL string of the address
+ * @param method Http method. "GET"(default) | "PUT" | "POST" | "DELETE"
+ * @param body json data to send
+ * @returns native javascript object
+ */
 export const fetcher = async <T>(
   url: string,
-  method: "GET" | "PUT" | "POST" = "GET",
+  method: "GET" | "PUT" | "POST" | "DELETE" = "GET",
   body?: unknown
 ): Promise<T> => {
   const options = {
