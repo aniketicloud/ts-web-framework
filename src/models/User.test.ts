@@ -72,6 +72,14 @@ describe("fetch()", () => {
   it("throws and error if the user does not have an id", async () => {
     await expect(user.fetch()).rejects.toThrow(fetchErrorMsg);
   });
+  it("gets the User 1 with id 1 from mocked data", async () => {
+    server.listen({ onUnhandledRequest: "error" });
+    const user = new User({ id: 1 });
+    await user.fetch();
+    expect(user.get("name")).toBe("User 1");
+    server.close();
+    server.resetHandlers();
+  });
 });
 
 describe("save()", () => {

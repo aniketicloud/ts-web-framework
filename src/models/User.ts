@@ -51,8 +51,6 @@ export class User {
   }
 
   set = (update: UserProps): void => {
-    console.log("update:", update);
-
     if (isEmptyObject(update)) throw new Error(emptyObjectSetErrorMsg);
     this.attributes.set(update);
     this.events.trigger("change");
@@ -68,7 +66,7 @@ export class User {
      * and only if id is present, call the fetch method on the Sync.
      * We wait for response to be resolved,
      * we get the response back from the server,
-     * we get the information we get,
+     * we get the information we want,
      * and set it on Attributes instance.
      */
     const id = this.attributes.get("id");
@@ -76,7 +74,7 @@ export class User {
 
     try {
       const data = await this.sync.fetch(id);
-      console.log("data:", data);
+      this.set(data);
     } catch (error) {
       console.log(error);
     }

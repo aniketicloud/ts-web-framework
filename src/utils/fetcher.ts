@@ -24,7 +24,6 @@ export const fetcher = async <T>(
     const data: T = await response.json();
     return data;
   } else if (!response.ok) {
-    console.log(response);
     throw new Error(`${response.status}: ${response.statusText}`);
   } else {
     const errorData = await response.json();

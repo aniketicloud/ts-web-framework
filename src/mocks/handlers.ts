@@ -17,4 +17,7 @@ export const handlers = [
   rest.get("http://localhost:3000/users", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(users));
   }),
+  rest.get("http://localhost:3000/users/1", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(users[0]));
+  }),
 ];
