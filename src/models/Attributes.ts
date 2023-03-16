@@ -15,11 +15,19 @@ export class Attributes<T> {
   };
 
   /**
-   * Changes information about this entity ( name, age, etc.)
+   * Changes old information or adds new information about this entity ( name, age, etc.)
    * @param update Object of entity Info
    */
   set = (update: T): void => {
     // Object.assign(this.data, update);
     this.data = { ...this.data, ...update };
+  };
+
+  /**
+   * Get all the properties of the entity like { name: "User", id: 3, age: 30 }
+   * @returns all the properties stored for the entity
+   */
+  getAll = (): T => {
+    return this.data;
   };
 }

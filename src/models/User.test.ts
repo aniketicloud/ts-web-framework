@@ -1,15 +1,6 @@
 /// <reference types="vitest" />
 
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { server } from "../mocks/server";
 import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
 
@@ -19,8 +10,8 @@ let user: User;
 beforeEach(() => {
   // user without an id
   mockUser = {
-    name: "user_name",
     age: 30,
+    name: "user_name",
   };
   user = new User(mockUser);
 });
