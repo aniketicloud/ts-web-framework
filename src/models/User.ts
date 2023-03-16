@@ -59,14 +59,18 @@ export class User {
   };
 
   /**
-   * fetch will first get current id of the Attributes,
-   * and only if id is present, call the fetch method on the Sync.
-   * We wait for response to be resolved,
-   * we get the response back from the server,
-   * we get the information we get,
-   * and set it on Attributes instance.
+   * Returns a Promise with interface of UserProps.
+   * Rejects a Promise if no id is provided.
    */
   fetch = async () => {
+    /**
+     * fetch will first get current id of the Attributes,
+     * and only if id is present, call the fetch method on the Sync.
+     * We wait for response to be resolved,
+     * we get the response back from the server,
+     * we get the information we get,
+     * and set it on Attributes instance.
+     */
     const id = this.attributes.get("id");
     if (typeof id !== "number") throw new Error(fetchErrorMsg);
 

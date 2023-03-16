@@ -1,7 +1,13 @@
 import { rootUrl, User } from "./models/User";
 import { fetcher } from "./utils/fetcher";
 
-const user = new User({ id: 4 });
+const user = new User({ name: "user_name", age: 30 });
 
-const data = await fetcher("http://some-wrong-url.com");
-console.log(data);
+user
+  .fetch()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err, "HI");
+  });

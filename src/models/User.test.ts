@@ -1,12 +1,23 @@
 /// <reference types="vitest" />
 
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
+import { server } from "../mocks/server";
 import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
 
 let mockUser: UserProps;
 let user: User;
 
 beforeEach(() => {
+  // user without an id
   mockUser = {
     name: "user_name",
     age: 30,
@@ -58,8 +69,8 @@ describe("set()", () => {
 });
 
 describe("fetch()", () => {
-  it("throws and error if the user does not have an id", () => {
-    // TODO: Add test case for fetch
+  it("throws and error if the user does not have an id", async () => {
+    await expect(user.fetch()).rejects.toThrow(fetchErrorMsg);
   });
 });
 
