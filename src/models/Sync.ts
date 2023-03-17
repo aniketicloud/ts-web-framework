@@ -28,24 +28,17 @@ export class Sync<T extends HasId> {
    */
   save = (data: T): void => {
     /**
-     * All of our models that need to be synced with a server,
-     * need an `id` property
+     * All of our models that need to be synced with a server, need an `id` property
      * If the user have an id, makes a PUT request.
      * If the user does not have an id, makes a POST request.
      */
     const { id } = data;
 
     if (id) {
-      // put
-      fetch(`${this.rootUrl}/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      // Update: PUT request
+      fetcher(`${this.rootUrl}/${id}`, "PUT", data);
     } else {
-      // post
+      // Create: POST request
       fetch(this.rootUrl, {
         method: "POST",
         headers: {

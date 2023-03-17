@@ -5,5 +5,4 @@ import { fetcher } from "./utils/fetcher";
 const user = new User({ name: "user_name", age: 30 });
 
 const sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
-const user1 = await sync.fetch(2);
-console.log(user1);
+sync.save({ id: 2, name: "user name", age: 30 });
