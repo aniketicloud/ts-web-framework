@@ -1,13 +1,9 @@
-import { rootUrl, User } from "./models/User";
+import { Sync } from "./models/Sync";
+import { rootUrl, User, UserProps } from "./models/User";
 import { fetcher } from "./utils/fetcher";
 
 const user = new User({ name: "user_name", age: 30 });
 
-user
-  .fetch()
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err, "HI");
-  });
+const sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
+const user1 = await sync.fetch(2);
+console.log(user1);

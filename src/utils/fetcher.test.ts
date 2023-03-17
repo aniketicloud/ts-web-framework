@@ -22,6 +22,6 @@ describe("fetcher() with mocking data for localhost url", () => {
     return expect(fetcher<UserProps[]>(rootUrl)).resolves.toHaveLength(2);
   });
   it("throws an error for incorrect url", () => {
-    expect(fetcher("http://some-wrong-url.com")).rejects.toThrowError();
+    return expect(fetcher("http://some-wrong-url.com")).rejects.toThrowError();
   });
 });
