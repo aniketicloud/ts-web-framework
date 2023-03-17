@@ -21,6 +21,7 @@ export const fetcher = async <T>(
   };
   const response = await fetch(url, options);
   if (response.status >= 200 && response.status <= 300) {
+    // response is successfull
     const data: T = await response.json();
     return data;
   } else if (!response.ok) {

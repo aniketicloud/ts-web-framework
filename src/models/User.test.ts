@@ -73,7 +73,7 @@ describe("fetch()", () => {
   });
 });
 
-describe("save()", () => {
-  it("creates a new user if id is not present on the user instance", () => {});
-  it("updates the user if id is present on the user instance", () => {});
+describe.todo("save()", () => {
+  it.todo("creates a new user if id is not present on the user instance", () => {});
+  it.todo("updates the user if id is present on the user instance", () => {});
 });
