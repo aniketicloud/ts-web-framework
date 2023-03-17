@@ -7,14 +7,19 @@ interface HasId {
 export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}
 
-  fetch = (id: number): Promise<UserProps> => {
+  /**
+   * It returns a Promise<T> having type of the entity.
+   * @param id id of the entity to be fetched.
+   * @returns a promise having type of the entity, e.g. UserProps.
+   */
+  fetch = (id: number): Promise<T> => {
     return fetcher(`${this.rootUrl}/${id}`);
   };
 
   /**
    * Creates or updates the data at the server.
    * It makes a PUT request if entity has an id else POST.
-   * @param data model data to save at server 
+   * @param data model data to save at server
    */
   save = (data: T): void => {
     /**
