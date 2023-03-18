@@ -39,13 +39,7 @@ export class Sync<T extends HasId> {
       fetcher(`${this.rootUrl}/${id}`, "PUT", data);
     } else {
       // Create: POST request
-      fetch(this.rootUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      fetcher(this.rootUrl, "POST", data);
     }
   };
 }

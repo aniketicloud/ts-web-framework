@@ -1,39 +1,9 @@
 {
   "users": [
     {
-      "id": 2,
       "name": "user name",
-      "age": 30
-    },
-    {
-      "user": "user1",
-      "age": 21,
-      "id": 3
-    },
-    {
-      "name": "Aniket",
       "age": 30,
-      "id": 4
-    },
-    {
-      "name": "New User",
-      "age": 23,
-      "id": 5
-    },
-    {
-      "age": 20,
-      "name": "new name",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "age": 0,
-      "name": "only name"
-    },
-    {
-      "age": 0,
-      "name": "only name",
-      "id": 8
+      "id": 1
     }
   ]
 }
