@@ -26,7 +26,7 @@ export class Sync<T extends HasId> {
    * It makes a PUT request if entity has an id else POST.
    * @param data model data to save at server
    */
-  save = (data: T): void => {
+  save = (data: T): Promise<T> => {
     /**
      * All of our models that need to be synced with a server, need an `id` property
      * If the user have an id, makes a PUT request.
@@ -36,10 +36,10 @@ export class Sync<T extends HasId> {
 
     if (id) {
       // Update: PUT request
-      fetcher(`${this.rootUrl}/${id}`, "PUT", data);
+      return fetcher(`${this.rootUrl}/${id}`, "PUT", data);
     } else {
       // Create: POST request
-      fetcher(this.rootUrl, "POST", data);
+      return fetcher(this.rootUrl, "POST", data);
     }
   };
 }

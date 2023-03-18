@@ -79,4 +79,20 @@ export class User {
       console.log(error);
     }
   };
+
+  /**
+   * It takes all the attributes and calls save() method of class Sync.
+   * When successfull, 'save' event will be triggered.
+   * When unsuccessfull, 'error' event will be triggered.
+   * If an id is not present, POST request will be sent & new user will be created.
+   * If id is present, PUT method will be sent & user will be updated.
+   */
+  save = async (): Promise<void> => {
+    try {
+      await this.sync.save(this.attributes.getAll());
+      this.trigger("save");
+    } catch (error) {
+      this.trigger("error");
+    }
+  };
 }
