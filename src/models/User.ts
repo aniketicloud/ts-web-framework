@@ -57,8 +57,10 @@ export class User {
   };
 
   /**
-   * Returns a Promise with interface of UserProps.
-   * Rejects a Promise if no id is provided.
+   * It fetches the data from the backend.
+   * It saves the data<UserProps> and also returns a Promise of data<UserProps>.
+   * When successfull, user data gets copied/replaced with server data.
+   * Throws an error if no id is provided or id is not present in the database.
    */
   fetch = async () => {
     /**
@@ -75,8 +77,9 @@ export class User {
     try {
       const data = await this.sync.fetch(id);
       this.set(data);
+      return Promise.resolve(data);
     } catch (error) {
-      console.log(error);
+      throw new Error(error as string);
     }
   };
 

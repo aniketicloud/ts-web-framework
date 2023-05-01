@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { UserProps } from "../models/User";
 
-const users: UserProps[] = [
+export const users: UserProps[] = [
   {
     id: 1,
     name: "User 1",

@@ -3,6 +3,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { server } from "../mocks/server";
 import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
+import { users } from "../mocks/handlers";
 
 let mockUser: UserProps;
 let user: User;
@@ -65,15 +66,18 @@ describe("fetch()", () => {
   });
   it("gets the User 1 with id 1 from mocked data", async () => {
     server.listen({ onUnhandledRequest: "error" });
-    const user = new User({ id: 1 });
-    await user.fetch();
-    expect(user.get("name")).toBe("User 1");
+    const user1 = new User({ id: 1 });
+    await user1.fetch();
+    expect(user1.get("name")).toBe(users[0].name);
     server.close();
     server.resetHandlers();
   });
 });
 
 describe.todo("save()", () => {
-  it.todo("creates a new user if id is not present on the user instance", () => {});
+  it.todo(
+    "creates a new user if id is not present on the user instance",
+    () => {}
+  );
   it.todo("updates the user if id is present on the user instance", () => {});
 });
