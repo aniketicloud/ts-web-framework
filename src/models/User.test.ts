@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, expectTypeOf, it, vi } from "vitest";
 import { server } from "../mocks/server";
 import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
 import { users } from "../mocks/handlers";
+import { Eventing } from "./Eventing";
 
 let mockUser: UserProps;
 let user: User;
@@ -15,6 +16,18 @@ beforeEach(() => {
     name: "user_name",
   };
   user = new User(mockUser);
+});
+
+describe("on()", () => {
+  it("returns a reference to the Event class's on method", () => {
+    expect(user.on).toBe(user.events.on);
+  });
+});
+
+describe("trigger()", () => {
+  it("returns a reference to the Event class's trigger method", () => {
+    expect(user.trigger).toBe(user.events.trigger);
+  });
 });
 
 describe("get()", () => {
@@ -74,7 +87,7 @@ describe("fetch()", () => {
   });
   it("throws an error when backend is not reachable", () => {
     user.set({ id: 1 });
-    return expect(user.fetch()).rejects.toThrowError(/FetchError: request to/)
+    return expect(user.fetch()).rejects.toThrowError(/FetchError: request to/);
   });
 });
 
