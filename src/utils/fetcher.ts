@@ -20,12 +20,12 @@ export const fetcher = async <T>(
     body: JSON.stringify(body),
   };
   const response = await fetch(url, options);
-  if (response.status >= 200 && response.status <= 300) {
+  if (!response.ok) {
+    throw new Error(`${response.status}: ${response.statusText}`);
+  } else if (response.status >= 200 && response.status <= 299) {
     // response is successfull
     const data: T = await response.json();
     return data;
-  } else if (!response.ok) {
-    throw new Error(`${response.status}: ${response.statusText}`);
   } else {
     const errorData = await response.json();
     throw new Error(
