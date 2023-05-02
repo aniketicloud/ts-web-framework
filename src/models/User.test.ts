@@ -72,6 +72,10 @@ describe("fetch()", () => {
     server.close();
     server.resetHandlers();
   });
+  it("throws an error when backend is not reachable", () => {
+    user.set({ id: 1 });
+    return expect(user.fetch()).rejects.toThrowError(/FetchError: request to/)
+  });
 });
 
 describe.todo("save()", () => {
