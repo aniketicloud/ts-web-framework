@@ -37,6 +37,7 @@ describe("trigger()", () => {
   it("does not trigger a callback if eventName is not present", () => {
     event.on(eventOne, callbackViFn);
     event.trigger("fakeEvent");
+    expect(callbackViFn).not.toHaveBeenCalled();
   });
   it("triggers a callback once when one callback is registered", () => {
     event.on(eventOne, callbackViFn);

@@ -87,7 +87,7 @@ describe("fetch()", () => {
   });
   it("throws an error when backend is not reachable", () => {
     user.set({ id: 1 });
-    return expect(user.fetch()).rejects.toThrowError(/FetchError: request to/);
+    return expect(user.fetch()).rejects.toThrowError(/Error: 404: Not Found/);
   });
 });
 

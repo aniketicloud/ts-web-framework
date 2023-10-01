@@ -9,7 +9,7 @@ export class Eventing {
   /**
    * Gives us the ability to tell other parts of our
    * application whenever data tied to a particular
-   * user is changed
+   * model is changed
    */
   constructor() {}
 
