@@ -2,7 +2,7 @@ import { fetcher } from "../utils/fetcher";
 interface HasId {
   id?: number;
 }
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
   /**
    * It takes a URL to which request will be made.
    * It must satisfies HasId interface.

@@ -8,13 +8,13 @@ import {
   it,
 } from "vitest";
 import { server } from "../mocks/server";
-import { Sync } from "./Sync";
+import { ApiSync } from "./ApiSync";
 import { rootUrl, UserProps } from "./User";
 
 // create an instance before each test
-let sync: Sync<UserProps>;
+let sync: ApiSync<UserProps>;
 beforeEach(() => {
-  sync = new Sync<UserProps>(rootUrl);
+  sync = new ApiSync<UserProps>(rootUrl);
 });
 
 // Start server before all tests
