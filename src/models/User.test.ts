@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
 
-import { beforeEach, describe, expect, expectTypeOf, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { server } from "../mocks/server";
-import { emptyObjectSetErrorMsg, fetchErrorMsg, User, UserProps } from "./User";
+import { User, UserProps } from "./User";
+import { emptyObjectSetErrorMsg, fetchErrorMsg } from "./Model";
 import { users } from "../mocks/handlers";
-import { Eventing } from "./Eventing";
 
 let mockUser: UserProps;
 let user: User;
